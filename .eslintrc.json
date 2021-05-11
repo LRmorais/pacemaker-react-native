@@ -23,6 +23,7 @@
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "no-unused-vars": "off",
         "no-undef":"off",
-        "react/jsx-boolean-value":"off"
+        "react/jsx-boolean-value":"off",
+        "import/no-unresolved": "off"
     }
 }
