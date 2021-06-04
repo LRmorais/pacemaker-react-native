@@ -5,7 +5,7 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#483D8B',
+    backgroundColor: '#0B0633',
   },
   containerLogo: {
     flex: 1,
@@ -28,9 +28,9 @@ export default StyleSheet.create({
     borderRadius: 10,
   },
   btnSubmit: {
-    backgroundColor: '#363636',
+    backgroundColor: '#FF4949',
     width: '90%',
-    height: 45,
+    height: 50,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 7,
@@ -41,6 +41,13 @@ export default StyleSheet.create({
   },
   btnRegister: {
     marginTop: 15,
+    borderColor:'#FF4949',
+    borderWidth: 1,
+    width: '90%',
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 7,
   },
   registerText: {
     color: '#fff',

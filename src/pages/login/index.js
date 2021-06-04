@@ -3,7 +3,7 @@ import React from 'react';
 import {
   View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, Platform,
 } from 'react-native';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/pacemaker.png';
 import Estilos from './styles';
 
 // import { Container } from './styles';
