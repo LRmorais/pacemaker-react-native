@@ -1,4 +1,8 @@
 {
   "name": "pacemaker",
-  "displayName": "pacemaker"
+  "displayName": "pacemaker",
+  "splash" : {
+    "image" : "./src/assets/splash.png",
+    "resizeMode" : "cover"
+  }
 }
