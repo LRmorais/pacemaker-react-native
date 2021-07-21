@@ -32,7 +32,7 @@ const LoginScreen = ({ navigation }) => {
           autoCorrect={false}
           onChangeText={() => {}}
         />
-        <TouchableOpacity style={Estilos.btnSubmit} onPress={() => navigation.navigate('HomeApp')}>
+        <TouchableOpacity style={Estilos.btnSubmit} onPress={() => navigation.navigate('Tutorial')}>
           <Text style={Estilos.submitText}>Acessar</Text>
         </TouchableOpacity>
 

@@ -15,6 +15,7 @@ import SettingsScreenDetail from './pages/settings/settingsScreenDetail';
 import NotificationsScreen from './pages/notification/notificationsScreen';
 import RegisterScreen from './pages/register/index';
 import LoginScreen from './pages/login/index';
+import Tutorial from './pages/tutorial/index';
 // importação de componentes
 import CustomDrawerContent from './components/customDrawerContent/index';
 
@@ -102,6 +103,7 @@ export default function App() {
       <StackApp.Navigator initialRouteName="Login">
         <StackApp.Screen name="HomeApp" component={DrawerNavigation} options={navOptionsHandler} />
         <StackApp.Screen name="Login" component={LoginScreen} options={navOptionsHandler} />
+        <StackApp.Screen name="Tutorial" component={Tutorial} options={navOptionsHandler} />
         <StackApp.Screen name="Register" component={RegisterScreen} options={navOptionsHandler} />
       </StackApp.Navigator>
     </NavigationContainer>
