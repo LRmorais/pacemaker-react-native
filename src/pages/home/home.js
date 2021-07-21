@@ -3,18 +3,21 @@ import {
   Text, View, SafeAreaView, Image, TouchableOpacity, ScrollView,
 } from 'react-native';
 
-import CustomHeader from '../../components/customHeader/index';
+import Head from './parts/head';
+import UserInfo from './parts/userInfo';
+import Button from '../../commomComponents/button';
 
 // import { Container } from './styles';
 
 const HomeScreen = ({ navigation }) => (
-  <SafeAreaView style={{ flex: 1 }}>
-    <CustomHeader title="Home" isHome={true} navigation={navigation} />
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-      <TouchableOpacity style={{ marginTop: 20 }} onPress={() => navigation.navigate('HomeDetail')}>
-        <Text>Go Home detail</Text>
-      </TouchableOpacity>
+  <SafeAreaView style={{ flex: 1, backgroundColor: '#0B0633' }}>
+    <View style={{
+      flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', width: '100%',
+    }}
+    >
+      <Head navigation={navigation} />
+      <UserInfo />
+      <Button text="Verificar Identidade" action={() => {}} />
     </View>
   </SafeAreaView>
 );
