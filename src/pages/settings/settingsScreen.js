@@ -7,7 +7,7 @@ import CustomHeader from '../../components/customHeader/index';
 // import { Container } from './styles';
 
 const SettingsScreen = ({ navigation }) => (
-  <SafeAreaView style={{ flex: 1 }}>
+  <SafeAreaView style={{ flex: 1, backgroundColor: '#05011F' }}>
     <CustomHeader title="Settings" isHome={true} navigation={navigation} />
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Settings!</Text>
