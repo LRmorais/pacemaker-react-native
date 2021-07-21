@@ -13,7 +13,7 @@ import HomeScreenDetail from './pages/home/homeScreenDetail';
 import SettingsScreen from './pages/settings/settingsScreen';
 import SettingsScreenDetail from './pages/settings/settingsScreenDetail';
 import NotificationsScreen from './pages/notification/notificationsScreen';
-import RegisterScreen from './pages/register/registerScreen';
+import RegisterScreen from './pages/register/index';
 import LoginScreen from './pages/login/index';
 // importação de componentes
 import CustomDrawerContent from './components/customDrawerContent/index';
