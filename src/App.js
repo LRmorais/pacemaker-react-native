@@ -1,6 +1,9 @@
 /* eslint-disable react/self-closing-comp */
 import * as React from 'react';
-import { Image } from 'react-native';
+import {
+  Image, View, TouchableOpacity, StyleSheet,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 // Componentes do React Navigator
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -52,31 +55,123 @@ function SettingStack() {
 const Tab = createBottomTabNavigator();
 
 function TabNavigator() {
+  const styles = StyleSheet.create({
+    shadow: {
+      shadowColor: '#7f5df0',
+      shadowOffset: {
+        width: 0,
+        height: 10,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 0.25,
+      elevation: 5,
+    },
+  });
+
+  const CustomTabBarButton = ({ children, onPress }) => (
+    <TouchableOpacity
+      style={{
+        top: -30,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+      onPress={onPress}
+    >
+      <View style={{
+        width: 70,
+        height: 70,
+        borderRadius: 35,
+        backgroundColor: '#FF4949',
+      }}
+      >
+        {children}
+      </View>
+    </TouchableOpacity>
+  );
+
   return (
     <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-          // para cada tab é possivel adicionar 2 icones de acordo com foco
-          if (route.name === 'Home') {
-            iconName = focused
-              ? require('./assets/icons/house.png')
-              : require('./assets/icons/house-black.png');
-          } else if (route.name === 'Settings') {
-            iconName = focused ? require('./assets/icons/settings.png')
-              : require('./assets/icons/settings-black.png');
-          }
-
-          return <Image source={iconName} style={{ width: 25, height: 25 }} resizeMode="contain" />;
-        },
-      })}
       tabBarOptions={{
+        showLabel: false,
         activeTintColor: 'red',
         inactiveTintColor: 'black',
+        style: {
+          position: 'absolute',
+          // bottom: 5,
+          // left: 3,
+          // right: 3,
+          elevation: 0,
+          backgroundColor: '#05011F',
+          height: 60,
+          // borderRadius: 15,
+
+        },
       }}
     >
-      <Tab.Screen name="Home" component={HomeStack} />
-      <Tab.Screen name="Settings" component={SettingStack} options={navOptionsHandler} />
+      <Tab.Screen
+        name="Home"
+        component={HomeStack}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{
+              alignItems: 'center', justifyContent: 'center', top: 10, marginBottom: 25,
+            }}
+            >
+              <Image
+                source={require('./assets/icons/home.png')}
+                resizeMode="contain"
+                style={{
+                  width: 35,
+                  height: 35,
+                  tintColor: focused ? '#FF4949' : '#fff',
+                }}
+              />
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={SettingStack}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={require('./assets/icons/profile.png')}
+              resizeMode="contain"
+              style={{
+                width: 35,
+                height: 35,
+                tintColor: '#fff',
+              }}
+            />
+          ),
+          tabBarButton: (props) => (
+            <CustomTabBarButton {...props} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={SettingStack}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{
+              alignItems: 'center', justifyContent: 'center', top: 10, marginBottom: 25,
+            }}
+            >
+              <Image
+                source={require('./assets/icons/help.png')}
+                resizeMode="contain"
+                style={{
+                  width: 35,
+                  height: 35,
+                  tintColor: focused ? '#FF4949' : '#fff',
+                }}
+              />
+            </View>
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
