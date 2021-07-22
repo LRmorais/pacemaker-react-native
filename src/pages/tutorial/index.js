@@ -15,12 +15,12 @@ const slide = [
   {
     key: '2',
     text: 'Máxima segurança dos seus dados.',
-    image: require('../../assets/tutorial1.png'),
+    image: require('../../assets/tutorial2.png'),
   },
   {
     key: '3',
     text: 'Mais conforto e facilidade para você',
-    image: require('../../assets/tutorial1.png'),
+    image: require('../../assets/tutorial3.png'),
   },
 ];
 
