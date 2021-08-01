@@ -19,6 +19,7 @@ import NotificationsScreen from './pages/notification/notificationsScreen';
 import RegisterScreen from './pages/register/index';
 import LoginScreen from './pages/login/index';
 import Tutorial from './pages/tutorial/index';
+import Qrcode from './pages/qrcodeValidate/index';
 // importação de componentes
 import CustomDrawerContent from './components/customDrawerContent/index';
 
@@ -200,6 +201,7 @@ export default function App() {
         <StackApp.Screen name="Login" component={LoginScreen} options={navOptionsHandler} />
         <StackApp.Screen name="Tutorial" component={Tutorial} options={navOptionsHandler} />
         <StackApp.Screen name="Register" component={RegisterScreen} options={navOptionsHandler} />
+        <StackApp.Screen name="Qrcode" component={Qrcode} options={navOptionsHandler} />
       </StackApp.Navigator>
     </NavigationContainer>
   );
