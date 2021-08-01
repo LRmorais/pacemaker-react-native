@@ -17,7 +17,7 @@ const HomeScreen = ({ navigation }) => (
     >
       <Head navigation={navigation} />
       <UserInfo />
-      <Button text="Verificar Identidade" action={() => {}} />
+      <Button text="Verificar Identidade" action={() => navigation.navigate('Qrcode')} />
     </View>
   </SafeAreaView>
 );
