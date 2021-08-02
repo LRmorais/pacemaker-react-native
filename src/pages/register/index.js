@@ -7,7 +7,7 @@ import CustomHeader from '../../components/customHeader/index';
 import logo from '../../assets/pacemaker.png';
 import Estilos from './style';
 
-import api from './userApi';
+import api from '../../services/userApi';
 
 // import { Container } from './styles';
 
