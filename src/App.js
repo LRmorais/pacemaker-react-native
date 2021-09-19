@@ -1,27 +1,19 @@
 /* eslint-disable react/self-closing-comp */
 import * as React from 'react';
 import {
-  Image, View, TouchableOpacity, StyleSheet,
+  Image, View, TouchableOpacity, StyleSheet, Text,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 // Componentes do React Navigator
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { useGlobalStateContext } from './hocs/globalState';
 
-// importação das pages
-import HomeScreen from './pages/home/home';
-import HomeScreenDetail from './pages/home/homeScreenDetail';
-import SettingsScreen from './pages/settings/settingsScreen';
-import SettingsScreenDetail from './pages/settings/settingsScreenDetail';
-import NotificationsScreen from './pages/notification/notificationsScreen';
-import RegisterScreen from './pages/register/index';
-import LoginScreen from './pages/login/index';
-import Tutorial from './pages/tutorial/index';
-import Qrcode from './pages/qrcodeValidate/index';
+// importação das screens
+import Screens from './pages';
 // importação de componentes
-import CustomDrawerContent from './components/customDrawerContent/index';
+import CustomDrawer from './components/customDrawerContent/index';
 
 // Options p/ stack
 const navOptionsHandler = () => ({
@@ -34,21 +26,19 @@ const StackHome = createStackNavigator();
 function HomeStack() {
   return (
     <StackHome.Navigator initialRouteName="Home">
-      <StackHome.Screen name="Home" component={HomeScreen} options={navOptionsHandler} />
-      <StackHome.Screen name="HomeDetail" component={HomeScreenDetail} options={navOptionsHandler} />
+      <StackHome.Screen name="Home" component={Screens.Home} options={navOptionsHandler} />
     </StackHome.Navigator>
   );
 }
 
 // Stack da tab Settings -----------------------------------
-const StackSettings = createStackNavigator();
+const StackFaq = createStackNavigator();
 
-function SettingStack() {
+function FaqStack() {
   return (
-    <StackSettings.Navigator initialRouteName="Setting">
-      <StackSettings.Screen name="Setting" component={SettingsScreen} options={navOptionsHandler} />
-      <StackSettings.Screen name="SettingDetail" component={SettingsScreenDetail} options={navOptionsHandler} />
-    </StackSettings.Navigator>
+    <StackFaq.Navigator initialRouteName="Faq">
+      <StackFaq.Screen name="Faq" component={Screens.Faq} options={navOptionsHandler} />
+    </StackFaq.Navigator>
   );
 }
 
@@ -103,7 +93,7 @@ function TabNavigator() {
           // right: 3,
           elevation: 0,
           backgroundColor: '#05011F',
-          height: 60,
+          height: '10%',
           // borderRadius: 15,
 
         },
@@ -133,7 +123,7 @@ function TabNavigator() {
       />
       <Tab.Screen
         name="Profile"
-        component={SettingStack}
+        component={Screens.QrcodeValidation}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
@@ -152,8 +142,8 @@ function TabNavigator() {
         }}
       />
       <Tab.Screen
-        name="Settings"
-        component={SettingStack}
+        name="Faq"
+        component={FaqStack}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={{
@@ -181,11 +171,17 @@ function TabNavigator() {
 // Drawer -------------------------------------------------
 const Drawer = createDrawerNavigator();
 
+function CustomDrawerContent(props) {
+  const { userInfo } = useGlobalStateContext();
+  return (
+    <CustomDrawer name={userInfo.name} {...props} />
+  );
+}
+
 function DrawerNavigation() {
   return (
-    <Drawer.Navigator initialRouteName="MenuTab" drawerContent={(props) => CustomDrawerContent(props)}>
+    <Drawer.Navigator initialRouteName="MenuTab" drawerContent={(props) => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="MenuTab" component={TabNavigator} />
-      <Drawer.Screen name="Notifications" component={NotificationsScreen} />
     </Drawer.Navigator>
   );
 }
@@ -198,10 +194,12 @@ export default function App() {
     <NavigationContainer>
       <StackApp.Navigator initialRouteName="Login">
         <StackApp.Screen name="HomeApp" component={DrawerNavigation} options={navOptionsHandler} />
-        <StackApp.Screen name="Login" component={LoginScreen} options={navOptionsHandler} />
-        <StackApp.Screen name="Tutorial" component={Tutorial} options={navOptionsHandler} />
-        <StackApp.Screen name="Register" component={RegisterScreen} options={navOptionsHandler} />
-        <StackApp.Screen name="Qrcode" component={Qrcode} options={navOptionsHandler} />
+        <StackApp.Screen name="Login" component={Screens.Login} options={navOptionsHandler} />
+        <StackApp.Screen name="Tutorial" component={Screens.Tutorial} options={navOptionsHandler} />
+        <StackApp.Screen name="Register" component={Screens.Register} options={navOptionsHandler} />
+        <StackApp.Screen name="Qrcode" component={Screens.QrcodeValidation} options={navOptionsHandler} />
+        <StackApp.Screen name="ChangePassword" component={Screens.ChangePassword} options={navOptionsHandler} />
+        <StackApp.Screen name="ChangeUserInfo" component={Screens.ChangeUserInfo} options={navOptionsHandler} />
       </StackApp.Navigator>
     </NavigationContainer>
   );

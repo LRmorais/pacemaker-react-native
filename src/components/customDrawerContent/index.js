@@ -6,21 +6,39 @@ import {
 // import { Container } from './styles';
 
 const customDrawerContent = (props) => (
-  <SafeAreaView style={{ flex: 1 }}>
-    <View style={{ height: 150, alignItems: 'center', justifyContent: 'center' }}>
-      <Image source={require('../../assets/icons/user.png')} style={{ height: 120, width: 120, borderRadius: 60 }} />
+  <SafeAreaView style={{ flex: 1, backgroundColor: '#05011F' }}>
+
+    <View style={{
+      height: 200, alignItems: 'center', justifyContent: 'space-evenly', flexDirection: 'column',
+    }}
+    >
+      <Image source={require('../../assets/avatar.png')} style={{ height: 120, width: 120, borderRadius: 20 }} />
+      <Text style={{
+        fontSize: 18,
+        color: '#FF4949',
+      }}
+      >
+        {props.name}
+
+      </Text>
     </View>
-    <ScrollView style={{ marginLeft: 5 }}>
-      <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('MenuTab')}>
-        <Text>Menu Tab</Text>
+
+    <ScrollView style={{ marginLeft: 5, paddingHorizontal: 20 }}>
+      <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('ChangeUserInfo')}>
+        <Text style={{ color: '#fff', fontSize: 20 }}>Editar Informações</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('Notifications')}>
-        <Text>Notifications</Text>
+      <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('ChangePassword')}>
+        <Text style={{ color: '#fff', fontSize: 20 }}>Alterar Senha</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('MenuTab')}>
+        <Text style={{ color: '#fff', fontSize: 20 }}>Avaliar Aplicativo</Text>
       </TouchableOpacity>
     </ScrollView>
-    <TouchableOpacity style={{ marginTop: 20, marginLeft: 5 }} onPress={() => props.navigation.navigate('Login')}>
-      <Text>Logout</Text>
+
+    <TouchableOpacity style={{ marginTop: 20, paddingHorizontal: 20 }} onPress={() => props.navigation.navigate('Login')}>
+      <Text style={{ color: '#fff', fontSize: 20 }}>Sair</Text>
     </TouchableOpacity>
   </SafeAreaView>
 );
