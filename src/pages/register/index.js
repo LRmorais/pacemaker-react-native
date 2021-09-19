@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, Platform,
 } from 'react-native';
-import CustomHeader from '../../components/customHeader/index';
 
 import logo from '../../assets/pacemaker.png';
 import Estilos from './style';
