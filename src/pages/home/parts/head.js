@@ -29,13 +29,13 @@ const styles = StyleSheet.create({
   // [...]
 });
 
-const Head = ({ navigation }) => (
+const Head = (props) => (
   <View style={{
     padding: 15, flexDirection: 'row', justifyContent: 'space-between', backgroundColor: '#0B0633', width: '100%', height: 100,
   }}
   >
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-      <TouchableOpacity onPress={() => navigation.openDrawer()}>
+      <TouchableOpacity onPress={() => props.navigation.openDrawer()}>
         <View style={styles.buttonDrawer}>
           <Icon
             name="list-outline"
@@ -44,7 +44,7 @@ const Head = ({ navigation }) => (
           />
         </View>
       </TouchableOpacity>
-      <Text style={styles.primaryText}>Olá, Maria</Text>
+      <Text style={styles.primaryText}>{`Olá, ${props.name.split(' ')[0]}`}</Text>
     </View>
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
       <TouchableOpacity>
