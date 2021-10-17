@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
         Alert.alert(
           'Algum erro ocorreu',
           'Tente novamente ou entre em contato',
-          [{ text: 'OK', onPress: () => {} }, ,],
+          [{ text: 'OK', onPress: () => {} }],
         );
       } else {
         setLoading(false);

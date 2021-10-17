@@ -13,11 +13,29 @@ export const signIn = async (credencias) => {
     const body = credencias;
 
     const res = await axios.post(url, body);
-    console.log(res);
+
     saveDataStr('TOKEN_KEY', res.data?.token);
     // todas as requisições posteriores incluiram o token
     api.defaults.headers.Authorization = `Bearer ${res.data.token}`;
     // saveData('USER_KEY', res.data?.user);
+
+    return res.data;
+  } catch (e) {
+    if (e.response && e.response.status === 401) {
+      return { error: e.response.data };
+    }
+
+    return { error: 'Ocorreu algum erro. ' };
+  }
+};
+
+export const signUp = async (credencias) => {
+  try {
+    const url = 'https://pacemakers-back.herokuapp.com/users/signup';
+
+    const body = credencias;
+
+    const res = await axios.post(url, body);
 
     return res.data;
   } catch (e) {
