@@ -46,4 +46,16 @@ export default StyleSheet.create({
     color: '#fff',
   },
 
+  loading: {
+    // flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#0B0633',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+  },
+
 });
