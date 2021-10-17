@@ -41,7 +41,7 @@ export default StyleSheet.create({
   },
   btnRegister: {
     marginTop: 15,
-    borderColor:'#FF4949',
+    borderColor: '#FF4949',
     borderWidth: 1,
     width: '90%',
     height: 50,
@@ -51,6 +51,12 @@ export default StyleSheet.create({
   },
   registerText: {
     color: '#fff',
+  },
+
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#0B0633',
   },
 
 });
