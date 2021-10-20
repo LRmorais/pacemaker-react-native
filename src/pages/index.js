@@ -6,6 +6,10 @@ import QrcodeValidation from './qrcodeValidate';
 import Faq from './faq';
 import ChangePassword from './changePassword';
 import ChangeUserInfo from './changeUserInfo';
+import QRCodeReader from './QRCodeReader';
+
+// Security screens
+import HomeSecurity from './HomeSecurity';
 
 export default {
   Tutorial,
@@ -16,4 +20,7 @@ export default {
   Faq,
   ChangePassword,
   ChangeUserInfo,
+  // Security
+  HomeSecurity,
+  QRCodeReader,
 };
