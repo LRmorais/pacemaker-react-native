@@ -24,7 +24,7 @@ const RegisterScreen = ({ navigation }) => {
   const [data, setData] = useState({
     email: '',
     name: '',
-    surname: '',
+    birthdate: '',
     number: '',
     password: '',
   });
@@ -80,7 +80,7 @@ const RegisterScreen = ({ navigation }) => {
               />
               <TextInput
                 style={Estilos.input}
-                placeholder="Sobrenome"
+                placeholder="Data de nascimento"
                 autoCorrect={false}
                 onChangeText={(e) => setData({ ...data, surname: e })}
               />

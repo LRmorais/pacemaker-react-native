@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 import { Alert } from 'react-native';
 import { signIn } from '../services/auth';
-import { getDataStg, clearAll } from '../helpers/Storage';
+import { getDataStg, clearAll, saveData } from '../helpers/Storage';
 import api from '../services/api';
 
 const AuthContext = createContext();
