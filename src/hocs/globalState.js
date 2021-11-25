@@ -1,6 +1,10 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
-import React, { createContext, useContext, useState } from 'react';
+import React, {
+  createContext, useContext, useState, useEffect,
+} from 'react';
+import { useAuth } from '../contexts/auth';
+import { getObjData } from '../helpers/Storage';
 
 const Context = createContext();
 export const useGlobalStateContext = () => useContext(Context);
@@ -10,10 +14,15 @@ const GlobalStateProvider = (props) => {
 
   const userInfo = {
     name: 'Maria da Silva e Silva',
-    documentNumber: '0015248-2',
-    birthday: '20/05/1995',
+    card: '0015248-2',
+    birthdate: '20/05/1995',
     cpf: '264.587.892-10',
   };
+  useEffect(() => {
+    getObjData('DATA').then((res) => {
+      setGeneralData(res);
+    });
+  });
 
   const value = {
     generalData,

@@ -10,6 +10,7 @@ import QRCodeReader from './QRCodeReader';
 
 // Security screens
 import HomeSecurity from './HomeSecurity';
+import ResultValidate from './resultValidate';
 
 export default {
   Tutorial,
@@ -23,4 +24,5 @@ export default {
   // Security
   HomeSecurity,
   QRCodeReader,
+  ResultValidate,
 };

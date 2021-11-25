@@ -35,6 +35,10 @@ const customDrawerContent = (props) => {
         </TouchableOpacity>
 
         <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('MenuTab')}>
+          <Text style={{ color: '#fff', fontSize: 20 }}>Completar Cadastro</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('MenuTab')}>
           <Text style={{ color: '#fff', fontSize: 20 }}>Avaliar Aplicativo</Text>
         </TouchableOpacity>
       </ScrollView>

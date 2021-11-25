@@ -14,6 +14,7 @@ const SecurityRoutes = () => (
   <SecurityStack.Navigator>
     <SecurityStack.Screen name="HomeSecurity" component={Screens.HomeSecurity} options={navOptionsHandler} />
     <SecurityStack.Screen name="QRCodeReader" component={Screens.QRCodeReader} options={navOptionsHandler} />
+    <SecurityStack.Screen name="ResultValidate" component={Screens.ResultValidate} options={navOptionsHandler} />
   </SecurityStack.Navigator>
 );
 

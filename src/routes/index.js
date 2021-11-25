@@ -9,8 +9,8 @@ import { useAuth } from '../contexts/auth';
 const Routes = () => {
   const { signed } = useAuth();
 
-  // return (signed ? <AppRoutes /> : <AuthRoutes />);
-  return (<SecurityRoutes />);
+  return (signed ? <AppRoutes /> : <AuthRoutes />);
+  // return (<SecurityRoutes />);
 };
 
 export default Routes;

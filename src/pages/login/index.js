@@ -47,6 +47,7 @@ const LoginScreen = ({ navigation }) => {
                 style={Estilos.input}
                 placeholder="Password"
                 autoCorrect={false}
+                secureTextEntry={true}
                 onChangeText={(e) => setPassword(e)}
               />
               <TouchableOpacity style={Estilos.btnSubmit} onPress={handleSignIn}>

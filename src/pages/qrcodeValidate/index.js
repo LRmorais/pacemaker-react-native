@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import {
   SafeAreaView, Text, View, StyleSheet, TouchableOpacity, Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import QRCode from 'react-native-qrcode-svg';
+import { useGlobalStateContext } from '../../hocs/globalState';
 
 const styles = StyleSheet.create({
   primaryText: {
@@ -16,8 +18,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const QrcodeValidate = ({ navigation }) => {
-  const [qrValue, setQrValue] = useState('pacemaker.com/carteirinhanumber1313131123');
+const QrcodeValidate = ({ navigation, route }) => {
+  const { generalData: data } = useGlobalStateContext();
+
+  // const [qrValue, setQrValue] = useState('pacemaker.com/carteirinhanumber1313131123');
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#0B0633' }}>
@@ -34,22 +38,22 @@ const QrcodeValidate = ({ navigation }) => {
           <View style={{ flexDirection: 'column', justifyContent: 'space-evenly', height: 200 }}>
             <View>
               <Text style={styles.primaryText}>Nome do(a) portador(a)</Text>
-              <Text style={styles.secondaryText}>Maria da Silva e Silva</Text>
+              <Text style={styles.secondaryText}>{data.name}</Text>
             </View>
 
             <View>
               <Text style={styles.primaryText}>Número da carteirinha</Text>
-              <Text style={styles.secondaryText}>0015248-2</Text>
+              <Text style={styles.secondaryText}>{data.card}</Text>
             </View>
 
             <View>
               <Text style={styles.primaryText}>Data de nascimento</Text>
-              <Text style={styles.secondaryText}>20/05/1995</Text>
+              <Text style={styles.secondaryText}>{data.birthdate}</Text>
             </View>
 
             <View>
               <Text style={styles.primaryText}>CPF</Text>
-              <Text style={styles.secondaryText}>264.587.892-10</Text>
+              <Text style={styles.secondaryText}>{data.cpf}</Text>
             </View>
           </View>
           <View>
@@ -65,7 +69,7 @@ const QrcodeValidate = ({ navigation }) => {
         >
           <Text style={{ color: '#FF4949', fontSize: 25 }}>Qr Code</Text>
           <QRCode
-            value={qrValue || 'NA'}
+            value={data.url || 'NA'}
             size={200}
             color="#FF4949"
             backgroundColor="#fff"
