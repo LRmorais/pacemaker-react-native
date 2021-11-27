@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import {
   View, Text, Image, TouchableOpacity, Touchable, StyleSheet,
@@ -44,7 +46,7 @@ const Head = (props) => (
           />
         </View>
       </TouchableOpacity>
-      <Text style={styles.primaryText}>{`Olá, ${props.name.split(' ')[0]}`}</Text>
+      <Text style={styles.primaryText}>{`Olá, ${props?.name?.split(' ')[0]}`}</Text>
     </View>
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
       <TouchableOpacity>

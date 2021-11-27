@@ -18,14 +18,19 @@ const HomeScreen = ({ navigation }) => {
         flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', width: '100%',
       }}
       >
-        <Head navigation={navigation} name={generalData.name} />
-        <UserInfo
-          name={generalData.name}
-          documentNumber={generalData.card}
-          birthday={generalData.birthdate}
-          cpf={generalData.cpf}
-        />
-        <Button text="Verificar Identidade" action={() => navigation.navigate('Qrcode')} />
+        {generalData ? (
+          <>
+            <Head navigation={navigation} name={generalData.name} />
+            <UserInfo
+              name={generalData.name}
+              documentNumber={generalData.card}
+              birthday={generalData.birthdate}
+              cpf={generalData.cpf}
+            />
+            <Button text="Verificar Identidade" action={() => navigation.navigate('Qrcode')} />
+          </>
+        ) : null}
+
       </View>
     </SafeAreaView>
   );

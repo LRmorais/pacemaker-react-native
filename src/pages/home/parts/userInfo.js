@@ -32,21 +32,21 @@ const UserInfo = (props) => {
         <View style={{ flexDirection: 'column', justifyContent: 'space-evenly', height: 130 }}>
           <View>
             <Text style={styles.primaryText}>Nome do(a) portador(a)</Text>
-            <Text style={styles.secondaryText}>{props.name}</Text>
+            <Text style={styles.secondaryText}>{props?.name}</Text>
           </View>
           <View>
             <Text style={styles.primaryText}>Número da carteirinha</Text>
-            <Text style={styles.secondaryText}>{props.documentNumber}</Text>
+            <Text style={styles.secondaryText}>{props?.documentNumber}</Text>
           </View>
         </View>
         <View style={{ flexDirection: 'column', justifyContent: 'space-evenly', height: 130 }}>
           <View>
             <Text style={styles.primaryText}>Data de nascimento</Text>
-            <Text style={styles.secondaryText}>{props.birthday}</Text>
+            <Text style={styles.secondaryText}>{props?.birthday}</Text>
           </View>
           <View>
             <Text style={styles.primaryText}>CPF</Text>
-            <Text style={styles.secondaryText}>{props.cpf}</Text>
+            <Text style={styles.secondaryText}>{props?.cpf}</Text>
           </View>
         </View>
       </View>
