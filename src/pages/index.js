@@ -6,6 +6,7 @@ import QrcodeValidation from './qrcodeValidate';
 import Faq from './faq';
 import ChangePassword from './changePassword';
 import ChangeUserInfo from './changeUserInfo';
+import completeRegister from './completeRegister';
 import QRCodeReader from './QRCodeReader';
 
 // Security screens
@@ -21,6 +22,7 @@ export default {
   Faq,
   ChangePassword,
   ChangeUserInfo,
+  completeRegister,
   // Security
   HomeSecurity,
   QRCodeReader,

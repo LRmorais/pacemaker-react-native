@@ -8,10 +8,11 @@ import { useGlobalStateContext } from '../../hocs/globalState';
 import Head from './parts/head';
 import UserInfo from './parts/userInfo';
 import Button from '../../commomComponents/button';
+import Modal from './parts/modal';
 
 const HomeScreen = ({ navigation }) => {
   const { userInfo, generalData } = useGlobalStateContext();
-
+  console.log(generalData);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#0B0633' }}>
       <View style={{
@@ -27,6 +28,7 @@ const HomeScreen = ({ navigation }) => {
               birthday={generalData.birthdate}
               cpf={generalData.cpf}
             />
+            <Modal data={generalData.cpf} />
             <Button text="Verificar Identidade" action={() => navigation.navigate('Qrcode')} />
           </>
         ) : null}

@@ -8,7 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "clean" : " react-native-clean-project " 
+    "clean": " react-native-clean-project "
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.9",
@@ -26,6 +26,8 @@
     "react-native-camera": "^4.2.1",
     "react-native-cli": "^2.0.1",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-image-picker": "^4.3.0",
+    "react-native-modalize": "^2.0.12",
     "react-native-paper": "^4.9.2",
     "react-native-permissions": "^3.1.0",
     "react-native-qrcode-scanner": "^1.5.4",

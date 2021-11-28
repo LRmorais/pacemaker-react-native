@@ -4,7 +4,7 @@ import React, {
   createContext, useState, useContext,
 } from 'react';
 import { Alert } from 'react-native';
-import { changeNewPassword } from '../services/userInfo';
+import { changeNewPassword, completeRegistration } from '../services/userInfo';
 import { getDataStg } from '../helpers/Storage';
 
 const UserContext = createContext();
@@ -35,11 +35,34 @@ export const UserInfoProvider = ({ children }) => {
       }
     });
   }
+  async function completeInfos(data, id) {
+    setLoading(true);
+    const storagedToken = await getDataStg('TOKEN_KEY');
+    const goCompleteInfos = async () => completeRegistration({ data, id, storagedToken });
+
+    goCompleteInfos().then((r) => {
+      if (r.error) {
+        console.log(r.error);
+        setLoading(false);
+        Alert.alert(
+          'Algum erro ocorreu',
+          'Tente novamente ou entre em contato',
+          [{ text: 'OK', onPress: () => {} }],
+        );
+      } else {
+        setLoading(false);
+        Alert.alert(
+          'Informações enviadas com sucesso.',
+          [{ text: 'OK', onPress: () => {} }],
+        );
+      }
+    });
+  }
 
   return (
     <UserContext.Provider
       value={{
-        loading, sendPassword,
+        loading, sendPassword, completeInfos,
       }}
     >
       {children}

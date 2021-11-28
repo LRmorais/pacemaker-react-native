@@ -18,6 +18,7 @@ const AppRoutes = () => (
     <AppStack.Screen name="Qrcode" component={Screens.QrcodeValidation} options={navOptionsHandler} />
     <AppStack.Screen name="ChangeUserInfo" component={Screens.ChangeUserInfo} options={navOptionsHandler} />
     <AppStack.Screen name="ChangePassword" component={Screens.ChangePassword} options={navOptionsHandler} />
+    <AppStack.Screen name="completeRegister" component={Screens.completeRegister} options={navOptionsHandler} />
   </AppStack.Navigator>
 );
 
