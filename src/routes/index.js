@@ -7,9 +7,16 @@ import SecurityRoutes from './security.routes';
 import { useAuth } from '../contexts/auth';
 
 const Routes = () => {
-  const { signed } = useAuth();
+  const { isAdmin, signed } = useAuth();
 
-  return (signed ? <AppRoutes /> : <AuthRoutes />);
+  if (isAdmin === true && signed) {
+    return <SecurityRoutes />;
+  } if (isAdmin === false && signed) {
+    return <AppRoutes />;
+  }
+  return <AuthRoutes />;
+
+  // return (signed ? <AppRoutes /> : <AuthRoutes />);
   // return (<SecurityRoutes />);
 };
 

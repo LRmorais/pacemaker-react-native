@@ -17,7 +17,8 @@ export const signIn = async (credencias) => {
     saveDataStr('TOKEN_KEY', res.data?.token);
     saveData('DATA', res.data?.data);
     // todas as requisições posteriores incluiram o token
-    api.defaults.headers.Authorization = `Bearer ${res.data.token}`;
+    // axios.defaults.headers.Authorization = `Bearer ${res.data.token}`;
+    // axios.defaults.headers.common['x-auth-token'] = `${res.data.token}`;
     // saveData('USER_KEY', res.data?.user);
 
     return res.data;

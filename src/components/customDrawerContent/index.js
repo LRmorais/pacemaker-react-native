@@ -34,7 +34,7 @@ const customDrawerContent = (props) => {
           <Text style={{ color: '#fff', fontSize: 20 }}>Alterar Senha</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('MenuTab')}>
+        <TouchableOpacity style={{ marginTop: 20 }} onPress={() => props.navigation.navigate('completeRegister')}>
           <Text style={{ color: '#fff', fontSize: 20 }}>Completar Cadastro</Text>
         </TouchableOpacity>
 
