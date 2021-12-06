@@ -11,8 +11,8 @@ import Button from '../../commomComponents/button';
 import Modal from './parts/modal';
 
 const HomeScreen = ({ navigation }) => {
-  const { userInfo, generalData } = useGlobalStateContext();
-  console.log(generalData);
+  const { generalData } = useGlobalStateContext();
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#0B0633' }}>
       <View style={{

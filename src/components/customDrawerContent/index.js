@@ -14,7 +14,7 @@ const customDrawerContent = (props) => {
         height: 200, alignItems: 'center', justifyContent: 'space-evenly', flexDirection: 'column',
       }}
       >
-        <Image source={require('../../assets/avatar.png')} style={{ height: 120, width: 120, borderRadius: 20 }} />
+        <Image source={require('../../assets/profile.png')} style={{ height: 120, width: 120, borderRadius: 20 }} />
         <Text style={{
           fontSize: 18,
           color: '#FF4949',

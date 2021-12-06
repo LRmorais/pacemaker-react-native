@@ -39,18 +39,28 @@ const CompleteRegistration = ({ navigation }) => {
   }
 
   function ImagePickerCallback(imageData) {
-    if (imageData.didCancel) {
-      console.log('cancelado');
-      return;
-    }
-    if (imageData.error) {
-      console.log('error');
-      return;
-    }
-    if (!imageData.uri) {
-      console.log('error');
-      return;
-    }
+
+    // if (imageData.didCancel) {
+    //   console.log('cancelado');
+    //   return;
+    // }
+    // if (imageData.error) {
+    //   console.log('error');
+    //   return;
+    // }
+    // if (!imageData.uri) {
+    //   console.log('error');
+    //   return;
+    // }
+    // setData({ ...data, image_url: imageData.assets[0].uri });
+    const dataImage = new FormData();
+
+    dataImage.append('image_url', {
+      fileName: imageData.assets[0].fileName,
+      uri: imageData.assets[0].uri,
+      type: imageData.assets[0].type,
+    });
+    setData({ ...data, dataImage });
 
   }
   return (
