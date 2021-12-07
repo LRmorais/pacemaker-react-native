@@ -9,13 +9,15 @@ import { useGlobalStateContext } from '../../hocs/globalState';
 
 const SearchUser = ({ navigation }) => {
   const { token } = useGlobalStateContext();
-  const [users, setUsers] = useState();
+  const [originalData, setOriginalData] = useState();
+  const [data, setData] = useState();
 
   async function getUser() {
     const response = await axios.get('https://pacemakers-back.herokuapp.com/users/', {
       headers: { 'x-access-token': `${token}` },
     });
-    setUsers(response.data);
+    setOriginalData(response.data);
+    setData(response.data);
   }
 
   useEffect(() => {
@@ -32,6 +34,12 @@ const SearchUser = ({ navigation }) => {
 
     );
   };
+
+  // pega os dados do input
+  function handleChange(e) {
+    const arr = JSON.parse(JSON.stringify(originalData));
+    setData(arr.filter((d) => d.email.includes(e)));
+  }
 
   return (
     <View style={styles.container}>
@@ -51,6 +59,9 @@ const SearchUser = ({ navigation }) => {
           placeholder="Buscar..."
           autoCorrect={false}
           placeholderTextColor="rgba(255, 255, 255, 0.5);"
+          onChangeText={(s) => {
+            handleChange(s);
+          }}
         />
         <TouchableOpacity onPress={getUser}>
           <Icon
@@ -71,7 +82,7 @@ const SearchUser = ({ navigation }) => {
       />
 
       <FlatList
-        data={users}
+        data={data}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
