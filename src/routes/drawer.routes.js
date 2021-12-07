@@ -6,9 +6,9 @@ import CustomDrawer from '../components/customDrawerContent/index';
 import TabNavigator from './tab.routes';
 
 function CustomDrawerContent(props) {
-  const { userInfo } = useGlobalStateContext();
+  const { generalData } = useGlobalStateContext();
   return (
-    <CustomDrawer name={userInfo.name} {...props} />
+    <CustomDrawer name={generalData?.name} {...props} />
   );
 }
 

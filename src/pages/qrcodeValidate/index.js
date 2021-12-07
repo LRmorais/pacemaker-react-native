@@ -58,7 +58,7 @@ const QrcodeValidate = ({ navigation, route }) => {
           </View>
           <View>
             <View>
-              <Image source={require('../../assets/avatar.png')} />
+              <Image style={{ width: 150, height: 150, borderRadius: 10 }} source={data.image ? data.image : require('../../assets/profile.png')} />
             </View>
           </View>
         </View>

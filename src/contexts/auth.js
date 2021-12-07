@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
       const storagedData = await getObjData('DATA');
 
       if (storagedToken) {
-        api.defaults.headers.Authorization = `Bearer ${storagedToken}`;
+        // api.defaults.headers.Authorization = `Bearer ${storagedToken}`;
 
         setIsAdmin(storagedData.is_admin);
         setToken(storagedToken);

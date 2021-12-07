@@ -11,9 +11,13 @@ const HomeSecurity = (props) => {
   function goQRcode() {
     props.navigation.navigate('QRCodeReader');
   }
+  function goSearch() {
+    props.navigation.navigate('SearchUser');
+  }
   return (
     <SafeAreaView style={estilos.container}>
-      <Button text="Validar Cliente" action={goQRcode} />
+      <Button text="Validar QR Code" action={goQRcode} />
+      <Button text="Buscar Usuário" action={goSearch} />
       <Button text="Sair" action={logout} />
     </SafeAreaView>
   );

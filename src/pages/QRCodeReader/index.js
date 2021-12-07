@@ -13,6 +13,8 @@ import {
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import Icon from 'react-native-vector-icons/Feather';
+import axios from 'axios';
+import { useGlobalStateContext } from '../../hocs/globalState';
 
 const styles = StyleSheet.create({
   container: {
@@ -58,6 +60,7 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const QRCodeReader = (props) => {
+  const { token } = useGlobalStateContext();
   const [loading, setLoading] = useState(false);
 
   const permissionCamera = () => {
@@ -88,24 +91,21 @@ const QRCodeReader = (props) => {
 
   permissionCamera();
 
-  function readQrCode() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          isValidate: true,
-        });
-      });
-    }, 4000);
-  }
-
   function onRead(e) {
-    console.log(e.data);
     setLoading(true);
-    async function handleQrCode() {
-      const response = await readQrCode();
-    }
-    setLoading(false);
-    props.navigation.navigate('ResultValidate');
+    axios.post('https://pacemakers-back.herokuapp.com/users/url_validation', e.data, {
+      headers: { 'x-access-token': `${token}` },
+    }).then((response) => {
+      console.log(response);
+      setLoading(false);
+      props.navigation.navigate('ResultValidate', { type: 'sucess' });
+    }).catch((e) => {
+      console.log(e);
+      setLoading(false);
+      props.navigation.navigate('ResultValidate', { type: 'error' });
+    });
+    // setLoading(false);
+    // props.navigation.navigate('ResultValidate');
   }
 
   return (
